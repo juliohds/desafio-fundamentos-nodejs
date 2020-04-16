@@ -7,11 +7,16 @@
     {
       "type": "node",
       "request": "attach",
+      "name": "Debug",
       "protocol": "inspector",
       "restart": true,
-      "name": "Debug",
-      "skipFiles": ["<node_internals>/**"],
-      "outFiles": ["${workspaceFolder}/**/*.js"]
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "program": "${workspaceFolder}/index.js",
+      "outFiles": [
+        "${workspaceFolder}/**/*.js"
+      ]
     }
   ]
 }

@@ -1,7 +1,7 @@
 import { uuid } from 'uuidv4';
 
 class Transaction {
-  id: string;
+  id: string | undefined;
 
   title: string;
 
@@ -9,8 +9,8 @@ class Transaction {
 
   type: 'income' | 'outcome';
 
-  constructor({ title, value, type }: Omit<Transaction, 'id'>) {
-    this.id = uuid();
+  constructor({ id, title, value, type }: Transaction) {
+    this.id = id === undefined ? uuid() : id;
     this.title = title;
     this.value = value;
     this.type = type;
